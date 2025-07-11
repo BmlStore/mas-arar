@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS Ar Rahman Ar Rahim - Madrasah Aliyah Swasta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1E3A8A;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            @apply shadow-md bg-white;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/80b29ab2-aeaf-4cd5-8eab-baeabd596748.png') no-repeat center center/cover;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading-bar {
+            animation: loading 2s ease-in-out infinite;
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card-front, .flip-card-back {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd5ee568-0396-41e6-9407-2583ceb5a2e5.png" alt="Logo MAS Ar Rahman Ar Rahim" class="h-12 w-12 rounded-full">
+                        <span class="ml-3 text-xl font-bold text-white">MAS Ar Rahman<br>Ar Rahim</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
+                    <a href="#profile" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Profil</a>
+                    <a href="#program" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Program</a>
+                    <a href="#facility" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Fasilitas</a>
+                    <a href="#news" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Berita</a>
+                    <a href="#contact" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden fixed inset-0 bg-gray-800 bg-opacity-90 z-40 pt-20">
+        <div class="flex flex-col items-center space-y-6 p-6">
+            <a href="#home" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+            <a href="#profile" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Profil</a>
+            <a href="#program" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Program</a>
+            <a href="#facility" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Fasilitas</a>
+            <a href="#news" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Berita</a>
+            <a href="#contact" class="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">MAS Ar Rahman Ar Rahim</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Menjadi Madrasah Aliyah Unggulan yang Mencetak Generasi Qurani Berakhlak Mulia dan Berprestasi Akademik</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+                <a href="#program" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg transition duration-300">Program Kami</a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Profil Madrasah</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5d1f0252-95e8-40ca-b10f-50e46531660a.png" alt="Gedung MAS Ar Rahman Ar Rahim dengan taman yang asri dan siswa beraktivitas" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Selamat Datang di MAS Ar Rahman Ar Rahim</h3>
+                    <p class="text-gray-600 mb-6">MAS Ar Rahman Ar Rahim merupakan Madrasah Aliyah Swasta yang berdiri sejak tahun 2005 dengan komitmen kuat untuk membentuk generasi muslim yang berakhlak mulia, berwawasan luas, dan mampu bersaing di era global.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 text-yellow-500 mt-1">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Akreditasi A (Sangat Baik) dari BANSM</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 text-yellow-500 mt-1">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Kurikulum terintegrasi antara pendidikan umum dan agama</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 text-yellow-500 mt-1">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Guru berpengalaman dan bersertifikasi</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-block mt-8 px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition duration-300">Selengkapnya</a>
+                </div>
+            </div>
+            
+            <!-- Visi Misi -->
+            <div class="mt-20 grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Visi
+                    </h3>
+                    <p class="text-gray-600">"Menjadi lembaga pendidikan Aliyah yang mencetak generasi Qurani yang berakhlak mulia, berpikir kritis, dan mampu berkontribusi positif bagi masyarakat serta siap menghadapi tantangan global."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg class="h-6 w-6 text-yellow-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Misi
+                    </h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li>Menyelenggarakan pendidikan berbasis Al-Qur'an dan Sunnah</li>
+                        <li>Mengembangkan potensi akademik dan karakter siswa</li>
+                        <li>Menciptakan lingkungan belajar yang kondusif dan islami</li>
+                        <li>Mempersiapkan siswa untuk melanjutkan ke perguruan tinggi berkualitas</li>
+                        <li>Mengembangkan keterampilan hidup dan jiwa kepemimpinan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Program Pendidikan</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Kami menawarkan berbagai program unggulan untuk memenuhi kebutuhan pendidikan siswa dengan pendekatan holistik</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program IPA -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl card-hover">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c26170e7-eaef-4f65-9bcd-6a5c39503335.png" alt="Siswa melakukan eksperimen ilmiah di laboratorium dengan peralatan modern" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">Program IPA</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Program Ilmu Pengetahuan Alam dengan fokus pada penguasaan sains modern dan integrasinya dengan pengetahuan Islam.</p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Keunggulan:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Laboratorium sains lengkap</li>
+                                <li>Pengembangan pola pikir ilmiah</li>
+                                <li>Olimpiade sains nasional</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            Detail Program 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program IPS -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl card-hover">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/489abc9d-4fdd-4e0c-a6bd-172d205d2300.png" alt="Diskusi kelompok siswa dalam konteks pembelajaran ilmu sosial dengan peta dunia dan grafik ekonomi" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">Program IPS</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Program Ilmu Pengetahuan Sosial yang memadukan pemahaman masyarakat kontemporer dengan nilai-nilai Islam.</p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Keunggulan:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Pemahaman sosial ekonomi Islam</li>
+                                <li>Studi lapangan langsung</li>
+                                <li>Debat dan kajian sosial</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            Detail Program 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tahfidz -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl card-hover">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5a39544-57a3-47ea-8b17-d9981c90a683.png" alt="Siswa menghafal Al-Qur'an di ruang khusus tahfidz dengan suasana tenang dan kondusif" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">Program Tahfidz</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Program khusus penghafal Al-Qur'an dengan target minimal 5 juz selama masa pendidikan.</p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Keunggulan:</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Metode menghafal modern</li>
+                                <li>Pengajar hafidz berpengalaman</li>
+                                <li>Evaluasi berkala</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            Detail Program 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ekstrakurikuler -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-10">Ekstrakurikuler Unggulan</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Robotic -->
+                    <div class="flip-card h-64">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-blue-600 rounded-lg p-6 flex flex-col justify-center items-center text-white">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1e6e208d-cb38-4ab4-8593-86dd8de2afd5.png" alt="Icon robotic dengan desain modern" class="w-16 h-16 mb-4">
+                                <h4 class="text-xl font-bold">Robotic Club</h4>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg p-6 shadow-lg">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Robotic Club</h4>
+                                <p class="text-gray-600 text-sm">Mengembangkan keterampilan STEM melalui pembuatan robot dan kompetisi nasional.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Debate -->
+                    <div class="flip-card h-64">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-green-600 rounded-lg p-6 flex flex-col justify-center items-center text-white">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/347f9a32-1559-4ff5-a066-fe71af3b74d2.png" alt="Icon debat dengan mikrofon dan buku" class="w-16 h-16 mb-4">
+                                <h4 class="text-xl font-bold">Debate Club</h4>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg p-6 shadow-lg">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Debate Club</h4>
+                                <p class="text-gray-600 text-sm">Melatih kemampuan berargumentasi dalam Bahasa Inggris dan Bahasa Arab.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tahsin -->
+                    <div class="flip-card h-64">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-yellow-500 rounded-lg p-6 flex flex-col justify-center items-center text-white">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89da03eb-6415-44eb-ba29-d258850e97a5.png" alt="Icon Al-Qur'an dengan hiasan kaligrafi" class="w-16 h-16 mb-4">
+                                <h4 class="text-xl font-bold">Tahsin Al-Qur'an</h4>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg p-6 shadow-lg">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Tahsin Al-Qur'an</h4>
+                                <p class="text-gray-600 text-sm">Memperbaiki bacaan Al-Qur'an sesuai tajwid dan makhraj yang benar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Entrepreneurship -->
+                    <div class="flip-card h-64">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-red-600 rounded-lg p-6 flex flex-col justify-center items-center text-white">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/84927b9a-d9dc-4b4a-89a5-ab8c3f9f3539.png" alt="Icon bisnis dengan grafik pertumbuhan dan uang" class="w-16 h-16 mb-4">
+                                <h4 class="text-xl font-bold">Young Entrepreneur</h4>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg p-6 shadow-lg">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Young Entrepreneur</h4>
+                                <p class="text-gray-600 text-sm">Mengembangkan jiwa wirausaha dengan prinsip bisnis syariah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section id="facility" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Fasilitas Madrasah</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Kami menyediakan fasilitas modern dan nyaman untuk mendukung proses belajar mengajar yang optimal</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lab Komputer -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1e12a9e8-820e-4a61-826c-35f13d5abcb0.png" alt="Laboratorium komputer modern dengan perangkat terbaru dan jaringan internet cepat" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Lab Komputer</h3>
+                            <p class="text-sm">Dilengkapi 40 unit komputer dan jaringan internet cepat</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Perpustakaan -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50d6fa78-674d-480f-8fdc-eec21a72d666.png" alt="Perpustakaan dengan rak buku tinggi, area baca nyaman, dan koleksi buku agama dan umum lengkap" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Perpustakaan</h3>
+                            <p class="text-sm">10.000+ koleksi buku agama dan umum</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Masjid -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ed83f0c-1f61-41f6-96e7-43df81dee5f7.png" alt="Masjid sekolah yang luas dengan kaligrafi indah dan tempat wudhu yang bersih" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Masjid</h3>
+                            <p class="text-sm">Kapasitas 500 jamaah dengan sound system berkualitas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lapangan Olahraga -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/14a1e16b-836b-4ca0-8231-c79015b82e08.png" alt="Lapangan olahraga multifungsi untuk basket, futsal, dan voli dengan permukaan berkualitas" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Lapangan Olahraga</h3>
+                            <p class="text-sm">Multifungsi untuk basket, futsal, dan voli</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Laboratorium Bahasa -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6b1d0524-7144-4891-869a-99cd207e65d1.png" alt="Laboratorium bahasa modern dengan headphone digital dan sistem pembelajaran interaktif" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Lab Bahasa</h3>
+                            <p class="text-sm">Sistem pembelajaran bahasa Arab dan Inggris modern</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kafetaria -->
+                <div class="relative group">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6e7aa6ab-40de-4272-b92e-52141e8c748c.png" alt="Kafetaria sekolah dengan makanan sehat dan tempat duduk nyaman untuk bersantai" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-xl font-bold mb-2">Kafetaria</h3>
+                            <p class="text-sm">Menyajikan makanan sehat dan halal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Section -->
+    <section class="py-20 bg-blue-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Prestasi Siswa</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4">Beberapa prestasi yang telah diraih oleh siswa-siswi MAS Ar Rahman Ar Rahim</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                    <div class="text-yellow-500 text-4xl mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-3">Juara 1 Olimpiade Sains Nasional</h3>
+                    <p class="text-gray-600">Bidang Fisika tingkat provinsi tahun 2023</p>
+                </div>
+                
+                <div class="bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                    <div class="text-yellow-500 text-4xl mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-3">Juara 2 MTQ Nasional</h3>
+                    <p class="text-gray-600">Musabaqah Tilawatil Qur'an kategori remaja tahun 2022</p>
+                </div>
+                
+                <div class="bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                    <div class="text-yellow-500 text-4xl mb-4">5</div>
+                    <h3 class="text-xl font-bold mb-3">Top 5 Debat Bahasa Inggris</h3>
+                    <p class="text-gray-600">Kompetisi debat antar madrasah se-Indonesia 2023</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block border-2 border-white text-white hover:bg-white hover:text-blue-700 font-bold py-3 px-8 rounded-lg transition duration-300">Lihat Semua Prestasi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita dan Pengumuman -->
+    <section id="news" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Berita & Pengumuman</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Berita 1 -->
+                <article class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a6c941f4-1f81-41b4-8afa-fad1d275a671.png" alt="Siswa menerima penghargaan di panggung dengan latar belakang logo madrasah" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-gray-500">10 Juni 2023</span>
+                        <h3 class="text-xl font-bold mt-2 mb-3 text-gray-800">Siswa MAS Ar Rahman Juara Olimpiade Matematika</h3>
+                        <p class="text-gray-600 mb-4">Ananda Muhammad Ali berhasil meraih medali emas dalam olimpiade matematika tingkat nasional yang diselenggarakan di Jakarta.</p>
+                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">Baca Selengkapnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </article>
+                
+                <!-- Berita 2 -->
+                <article class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ae12cded-3265-42e8-b7b8-d75af0c2be21.png" alt="Kelompok siswa sedang melakukan eksperimen sains di laboratorium sekolah" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-gray-500">25 Mei 2023</span>
+                        <h3 class="text-xl font-bold mt-2 mb-3 text-gray-800">Workshop Sains untuk Siswa Kelas XI</h3>
+                        <p class="text-gray-600 mb-4">Madrasah menyelenggarakan workshop sains dengan tema "Innovation in Renewable Energy" bersama pakar dari ITB.</p>
+                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">Baca Selengkapnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                    </div>
+                </article>
+                
+                <!-- Berita 3 -->
+                <article class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e7525740-2477-4f55-acb1-7f46adef6307.png" alt="Proses penerimaan siswa baru dengan antrean orang tua di depan gedung sekolah" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-gray-500">15 Mei 2023</span>
+                       
